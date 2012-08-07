@@ -8,7 +8,6 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "pageSize": 1000,
         "storeId": "stations",
         "designer|userClassName": "Stations"
     },

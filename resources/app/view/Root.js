@@ -141,6 +141,7 @@ Ext.define('MyApp.view.Root', {
         Ext.getCmp("stationList").deselectAll();
         Ext.getCmp("root").fireEvent("changeList", Ext.getCmp("stationList"));
         Ext.getCmp("departureTimeList").swuid = undefined;
+        clearInterval(Ext.getCmp("root").intervall);
     },
 
     onDepartureTimeListUpdateList: function(id) {
@@ -220,15 +221,17 @@ Ext.define('MyApp.view.Root', {
             url: '/departure-times/' + id
         });
 
-        var intervall = setInterval(function(){
+        var self = this;
+        self.intervall = setInterval(function(){
             id = Ext.getCmp("departureTimeList").swuid;
             console.info(id);
-            if(id === null || id === undefined)
-            clearInterval(intervall);
-            else
-            Ext.getCmp("departureTimeList").getStore().load({
-                url: '/departure-times/' + id
-            });
+            if(id === null || id === undefined){
+                clearInterval(self.intervall);
+            }else{
+                Ext.getCmp("departureTimeList").getStore().load({
+                    url: '/departure-times/' + id
+                });
+            }
         }, 20 * 1000);
     }
 

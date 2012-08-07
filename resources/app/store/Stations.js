@@ -18,7 +18,6 @@ Ext.define('MyApp.store.Stations', {
 
     config: {
         autoLoad: true,
-        pageSize: 1000,
         storeId: 'stations',
         proxy: {
             type: 'ajax',
