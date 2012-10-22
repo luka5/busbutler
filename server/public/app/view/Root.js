@@ -52,7 +52,7 @@ Ext.define('MyApp.view.Root', {
                 id: 'departureTimeList',
                 itemId: 'mylist1',
                 itemTpl: [
-                    '<div>{line} {direction} in {countdown} min</div>'
+                    '<div>{line} {direction} in {countdown} min <tpl if="isRealTime"><img src="./realtime.png" style="vertical-align: middle; height: 16px;" /></tpl></div>'
                 ],
                 store: 'departureTimes',
                 items: [
@@ -131,62 +131,75 @@ Ext.define('MyApp.view.Root', {
     },
 
     onMylistSelect: function(dataview, record, options) {
-        Ext.getCmp("root").fireEvent("changeList", Ext.getCmp("departureTimeList"));
-        Ext.getCmp("departureTimeList").fireEvent("updateList", record.get("swuid"));
-        Ext.getCmp("departureLabel").location = record.get("key");
-        Ext.getCmp("departureLabel").setHtml(Ext.getCmp("departureLabel").location);
+        console.info("record.get(\"swuid\")" + record.get("swuid"));
+        /*
+         * set url
+         */
+        url = "station/" + record.get("swuid");
+        app.getHistory().add(Ext.create('Ext.app.Action', {
+            url: url
+        }));
     },
 
     onMybuttonTap: function(button, e, options) {
         Ext.getCmp("stationList").deselectAll();
-        Ext.getCmp("root").fireEvent("changeList", Ext.getCmp("stationList"));
         Ext.getCmp("departureTimeList").swuid = undefined;
-        clearInterval(Ext.getCmp("root").intervall);
+        this.clearInterval();
+        
+//         Ext.getCmp("root").fireEvent("changeList", Ext.getCmp("stationList"), undefined);
+        /*
+         * set url
+         */
+        var url = "";
+        app.getHistory().add(Ext.create('Ext.app.Action', {
+            url: url
+        }));
     },
 
     onDepartureTimeListUpdateList: function(id) {
         Ext.getCmp("departureTimeList").swuid = id;
-        Ext.getCmp("root").startReloadTask();
+        this.initInterval(10000);
     },
 
-    onRootChangeList: function(card) {
-        this.setActiveItem(card);
-        /*
-        TODO
-        reload von aktuem departue list
-        suche auf wildcard ändern
-        */
+    onRootChangeList: function(card, swuid) {
     },
 
     onRootInitialize: function(component, options) {
-        if(!navigator.geolocation){
-            var stationID = localStorage.getItem("stationID");
-            if(stationID === null)
-            stationID = 1240;
-            Ext.getCmp("stationfield").setValue(stationID);
-        }else{
-            //geolocation works
-            navigator.geolocation.getCurrentPosition(
+        this.watchID = navigator.geolocation.watchPosition(
             function(position){
-                component.fireEvent("geopositionChanged",{latitude: position.coords.latitude, longitude: position.coords.longitude});
+                component.fireEvent("geopositionChanged", {latitude: position.coords.latitude, longitude: position.coords.longitude});
             },
             function(){
                 alert("Fehlerhafte Ortung.");
-                alert(JSON.stringify(arguments));
-            }
-            );
-        }
-
+//                 alert(JSON.stringify(arguments));
+            },
+            { frequency: 3000, enableHighAccuracy: true }
+        );
+        
+        /*
+         * set stations url and load first time
+         */
+        var stationsStore = Ext.getCmp("stationList").getStore();
+        var stationsStoreProxy = stationsStore.getProxy();
+        var url = baseUrl + stationsStoreProxy.getUrl();
+        stationsStoreProxy.setUrl(url);
+        stationsStore.load();
     },
 
     onRootGeopositionChangeD: function(opts, event) {
-        var url = "/allByCoords?coords=" + JSON.stringify([opts.longitude, opts.latitude]);
+        var url = baseUrl + "/allByCoords?coords=" + JSON.stringify([opts.longitude, opts.latitude]);
         Ext.Ajax.request({
             url: url,
             success: function(response){
-                var text = JSON.parse(response.responseText);
+                
                 var stationsStore = Ext.getCmp("stationList").getStore();
-                console.info(stationsStore);
+                var record = stationsStore.findRecord("group", "1. Nächste Stationen");
+                while(record !== null){
+                    stationsStore.remove(record);
+                    record = stationsStore.findRecord("group", "1. Nächste Stationen");
+                }
+
+                var text = JSON.parse(response.responseText);
                 var stationModel = stationsStore.getModel();
                 for(var i = 0; i < text.rows.length ; i++){
                     var station = new stationModel();
@@ -214,25 +227,41 @@ Ext.define('MyApp.view.Root', {
         }
         );
     },
+    
+    initInterval: function(time) {
+        /*
+        * Ext.TaskManager ist in Sencha Touch 2 leider nicht verfügbar, also:
+        * setInterval definiert, das den Store alle "time" sekunden aufruft
+        * initial muss die funktion von hand aufgerufen werden, damit sie nicht erst nach time aufgerufen wird.
+        */
+        if(time){
+            this.time = time;
+        }
 
-    startReloadTask: function() {
-        var id = Ext.getCmp("departureTimeList").swuid;
-        Ext.getCmp("departureTimeList").getStore().load({
-            url: '/departure-times/' + id
-        });
+        var fn = function(){
+            var swuid = Ext.getCmp("departureTimeList").swuid;
+            var url = baseUrl + '/departure-times/' + swuid;
+            Ext.getCmp("departureTimeList").getStore().load({
+                url: url
+            });
+        };
+        this.interval = setInterval(fn, this.time);
 
-        var self = this;
-        self.intervall = setInterval(function(){
-            id = Ext.getCmp("departureTimeList").swuid;
-            console.info(id);
-            if(id === null || id === undefined){
-                clearInterval(self.intervall);
-            }else{
-                Ext.getCmp("departureTimeList").getStore().load({
-                    url: '/departure-times/' + id
-                });
-            }
-        }, 20 * 1000);
+        fn();
+    },
+
+    forceInterval: function() {
+        /*
+        * Lösche aktuelles Interval und erstelle neues exakt gleich.
+        * Neues Interval wird sofort ausgeführt!
+        */
+
+        this.clearInterval();
+        this.initInterval();
+    },
+
+    clearInterval: function() {
+        clearInterval(this.interval);
     }
 
 });

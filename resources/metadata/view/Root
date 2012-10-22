@@ -1,5 +1,4 @@
 {
-    "id": "ExtBox1-ext-gen4213",
     "type": "container",
     "reference": {
         "name": "items",
@@ -7,18 +6,15 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userClassName": "Root",
         "designer|initialView": true,
         "id": "root",
-        "layout": "card",
-        "designer|userClassName": "Root"
+        "layout": "card"
     },
-    "customConfigs": [],
+    "id": "ExtBox1-ext-gen4213",
     "designerId": "3706d8fd-4489-4617-93f0-3175eb072d1e",
-    "$viewOrder": 0,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen3671",
             "type": "list",
             "reference": {
                 "name": "items",
@@ -26,18 +22,15 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "MyList",
                 "id": "stationList",
                 "itemId": "mylist",
-                "itemTpl": "<div>{key}</div>",
                 "store": "stations",
-                "grouped": true,
-                "designer|userClassName": "MyList"
+                "grouped": true
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "82ce81dc-d8f6-4739-98fd-7cf7f451c51f",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen5135",
                     "type": "toolbar",
                     "reference": {
                         "name": "items",
@@ -45,14 +38,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "top",
-                        "designer|userClassName": "MyToolbar"
+                        "designer|userClassName": "MyToolbar",
+                        "docked": "top"
                     },
-                    "customConfigs": [],
-                    "expanded": true,
+                    "designerId": "cc67b84a-7b9e-4d2e-bce7-f7d785b50d65",
                     "cn": [
                         {
-                            "id": "ExtBox1-ext-gen5337",
                             "type": "searchfield",
                             "reference": {
                                 "name": "items",
@@ -60,16 +51,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|userClassName": "MySearchField",
                                 "id": "mysearchfield",
                                 "itemId": "mysearchfield",
-                                "label": "",
-                                "designer|userClassName": "MySearchField"
+                                "label": ""
                             },
-                            "customConfigs": [],
-                            "expanded": true,
+                            "designerId": "7f9c0a79-a740-4f9a-8ed4-b5668822a8da",
                             "cn": [
                                 {
-                                    "id": "ExtBox1-ext-gen25297",
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -77,6 +66,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|userClassName": "onMysearchfieldKeyup",
                                         "fn": "onMysearchfieldKeyup",
                                         "implHandler": [
                                             "if(this.filterTask === undefined)",
@@ -84,14 +74,11 @@
                                             "",
                                             "this.filterTask.delay(300);"
                                         ],
-                                        "name": "keyup",
-                                        "designer|userClassName": "onMysearchfieldKeyup"
+                                        "name": "keyup"
                                     },
-                                    "customConfigs": [],
-                                    "expanded": true
+                                    "designerId": "fe654160-f347-4741-b986-dd7fc2cf0e6d"
                                 },
                                 {
-                                    "id": "ExtBox1-ext-gen10664",
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -99,6 +86,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|userClassName": "onMysearchfieldClearicontap",
                                         "fn": "onMysearchfieldClearicontap",
                                         "implHandler": [
                                             "if(this.filterTask === undefined)",
@@ -106,18 +94,15 @@
                                             "",
                                             "this.filterTask.delay(0);"
                                         ],
-                                        "name": "clearicontap",
-                                        "designer|userClassName": "onMysearchfieldClearicontap"
+                                        "name": "clearicontap"
                                     },
-                                    "customConfigs": [],
-                                    "expanded": true
+                                    "designerId": "5d0deba6-3ff2-4d03-8395-6cb0ebc421f8"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "id": "ExtBox1-ext-gen7542",
                     "type": "basiceventbinding",
                     "reference": {
                         "name": "listeners",
@@ -125,6 +110,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|userClassName": "onMylistSelect",
                         "fn": "onMylistSelect",
                         "implHandler": [
                             "Ext.getCmp(\"root\").fireEvent(\"changeList\", Ext.getCmp(\"departureTimeList\"));",
@@ -132,14 +118,11 @@
                             "Ext.getCmp(\"departureLabel\").location = record.get(\"key\");",
                             "Ext.getCmp(\"departureLabel\").setHtml(Ext.getCmp(\"departureLabel\").location);"
                         ],
-                        "name": "select",
-                        "designer|userClassName": "onMylistSelect"
+                        "name": "select"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "38615b07-99a2-4118-b140-da87c209b114"
                 },
                 {
-                    "id": "ExtBox1-ext-gen3367",
                     "type": "listindexbar",
                     "reference": {
                         "name": "indexBar",
@@ -149,13 +132,27 @@
                     "userConfig": {
                         "designer|userClassName": "MyIndexBar"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "55f66d3f-d0eb-4d7c-9056-6dbe0e811c37"
+                },
+                {
+                    "type": "template",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "itemTpl",
+                        "implHandler": [
+                            "<div>{key}</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "8b6fa9d4-02d2-4e7c-8941-8a30a859eb39"
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen5965",
             "type": "list",
             "reference": {
                 "name": "items",
@@ -163,17 +160,14 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "MyList1",
                 "id": "departureTimeList",
                 "itemId": "mylist1",
-                "itemTpl": "<div>{line} {direction} in {countdown} min</div>",
-                "store": "departureTimes",
-                "designer|userClassName": "MyList1"
+                "store": "departureTimes"
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "ab3cc033-d466-4b08-bebd-406bfd6d9d2d",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen6229",
                     "type": "toolbar",
                     "reference": {
                         "name": "items",
@@ -181,14 +175,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "top",
-                        "designer|userClassName": "MyToolbar1"
+                        "designer|userClassName": "MyToolbar1",
+                        "docked": "top"
                     },
-                    "customConfigs": [],
-                    "expanded": true,
+                    "designerId": "d5447ee1-54df-4f7f-8677-425cf00cd28c",
                     "cn": [
                         {
-                            "id": "ExtBox1-ext-gen6427",
                             "type": "button",
                             "reference": {
                                 "name": "items",
@@ -196,15 +188,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|userClassName": "MyButton",
                                 "itemId": "mybutton",
-                                "text": "zur Übersicht",
-                                "designer|userClassName": "MyButton"
+                                "text": "zur Übersicht"
                             },
-                            "customConfigs": [],
-                            "expanded": true,
+                            "designerId": "face08ed-aebc-4c13-bbbe-10a2c69bd918",
                             "cn": [
                                 {
-                                    "id": "ExtBox1-ext-gen13757",
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -212,6 +202,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|userClassName": "onMybuttonTap",
                                         "fn": "onMybuttonTap",
                                         "implHandler": [
                                             "Ext.getCmp(\"stationList\").deselectAll();",
@@ -219,16 +210,13 @@
                                             "Ext.getCmp(\"departureTimeList\").swuid = undefined;",
                                             "clearInterval(Ext.getCmp(\"root\").intervall);"
                                         ],
-                                        "name": "tap",
-                                        "designer|userClassName": "onMybuttonTap"
+                                        "name": "tap"
                                     },
-                                    "customConfigs": [],
-                                    "expanded": true
+                                    "designerId": "7a39b67b-6111-4622-bb29-249959c50545"
                                 }
                             ]
                         },
                         {
-                            "id": "ExtBox1-ext-gen5206",
                             "type": "label",
                             "reference": {
                                 "name": "items",
@@ -236,18 +224,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "html": null,
-                                "id": "departureLabel",
+                                "layout|flex": 1,
                                 "designer|userClassName": "MyLabel",
-                                "layout|flex": 1
+                                "html": null,
+                                "id": "departureLabel"
                             },
-                            "customConfigs": [],
-                            "expanded": true
+                            "designerId": "fa2059a1-8289-4de7-92f3-78391a85b502"
                         }
                     ]
                 },
                 {
-                    "id": "ExtBox1-ext-gen19678",
                     "type": "basiceventbinding",
                     "reference": {
                         "name": "listeners",
@@ -255,6 +241,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|userClassName": "onDepartureTimeListUpdateList",
                         "fn": "onDepartureTimeListUpdateList",
                         "designer|params": [
                             "id"
@@ -263,16 +250,29 @@
                             "Ext.getCmp(\"departureTimeList\").swuid = id;",
                             "Ext.getCmp(\"root\").startReloadTask();"
                         ],
-                        "name": "updateList",
-                        "designer|userClassName": "onDepartureTimeListUpdateList"
+                        "name": "updateList"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "9eb10471-7faf-4501-aa59-711bc069f467"
+                },
+                {
+                    "type": "template",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "itemTpl",
+                        "implHandler": [
+                            "<div>{line} {direction} in {countdown} min</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "21ff028b-00fa-4981-b4ac-8deaaf5cfce3"
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen12905",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -280,6 +280,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "onRootChangeList",
                 "fn": "onRootChangeList",
                 "designer|params": [
                     "card"
@@ -292,14 +293,11 @@
                     "suche auf wildcard ändern",
                     "*/"
                 ],
-                "name": "changeList",
-                "designer|userClassName": "onRootChangeList"
+                "name": "changeList"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "281fc8d4-6829-4335-8ee9-8a9f61bebbb1"
         },
         {
-            "id": "ExtBox1-ext-gen28253",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -307,6 +305,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "executeSearch",
                 "fn": "executeSearch",
                 "implHandler": [
                     "var search = Ext.getCmp(\"mysearchfield\").getValue().split(\" \");",
@@ -321,14 +320,11 @@
                     "    return key;",
                     "}",
                     ");"
-                ],
-                "designer|userClassName": "executeSearch"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "409b4edc-02c5-4b80-b7f9-0e3b6f44a4d6"
         },
         {
-            "id": "ExtBox1-ext-gen30036",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -336,35 +332,27 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "onRootInitialize",
                 "fn": "onRootInitialize",
                 "implHandler": [
-                    "if(!navigator.geolocation){",
-                    "    var stationID = localStorage.getItem(\"stationID\");",
-                    "    if(stationID === null)",
-                    "    stationID = 1240;",
-                    "    Ext.getCmp(\"stationfield\").setValue(stationID);",
-                    "}else{",
-                    "    //geolocation works",
-                    "    navigator.geolocation.getCurrentPosition(",
-                    "    function(position){",
+                    "Ext.require(\"Ext.device.Geolocation\");",
+                    "Ext.device.Geolocation.watchPosition({",
+                    "    frequency: 3000,",
+                    "    success: function(position){",
                     "        component.fireEvent(\"geopositionChanged\",{latitude: position.coords.latitude, longitude: position.coords.longitude});",
                     "    },",
-                    "    function(){",
+                    "    failure: function(){",
                     "        alert(\"Fehlerhafte Ortung.\");",
                     "        alert(JSON.stringify(arguments));",
                     "    }",
-                    "    );",
-                    "}",
+                    "});",
                     ""
                 ],
-                "name": "initialize",
-                "designer|userClassName": "onRootInitialize"
+                "name": "initialize"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "83c8ad11-08dc-49df-8fac-2e4e22aa6acf"
         },
         {
-            "id": "ExtBox1-ext-gen30400",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -372,6 +360,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "onRootGeopositionChangeD",
                 "fn": "onRootGeopositionChangeD",
                 "designer|params": [
                     "opts",
@@ -382,9 +371,15 @@
                     "Ext.Ajax.request({",
                     "    url: url,",
                     "    success: function(response){",
+                    "",
+                    "        var record = stationsStore.findRecord(\"group\", \"1. Nächste Stationen\");",
+                    "        while(record !== null){",
+                    "            stationsStore.remove(record);",
+                    "            record = stationsStore.findRecord(\"group\", \"1. Nächste Stationen\");",
+                    "        }",
+                    "        ",
                     "        var text = JSON.parse(response.responseText);",
                     "        var stationsStore = Ext.getCmp(\"stationList\").getStore();",
-                    "        console.info(stationsStore);",
                     "        var stationModel = stationsStore.getModel();",
                     "        for(var i = 0; i < text.rows.length ; i++){",
                     "            var station = new stationModel();",
@@ -397,14 +392,11 @@
                     "    }",
                     "});"
                 ],
-                "name": "geopositionChanged",
-                "designer|userClassName": "onRootGeopositionChangeD"
+                "name": "geopositionChanged"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "71d2688c-ec4c-48f0-b42d-4b6a7dffe862"
         },
         {
-            "id": "ExtBox1-ext-gen16266",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -412,6 +404,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "startReloadTask",
                 "fn": "startReloadTask",
                 "implHandler": [
                     "var id = Ext.getCmp(\"departureTimeList\").swuid;",
@@ -431,11 +424,9 @@
                     "        });",
                     "    }",
                     "}, 20 * 1000);"
-                ],
-                "designer|userClassName": "startReloadTask"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "41d48df7-0a72-4e1c-8b4a-581aa0c71767"
         }
     ]
 }

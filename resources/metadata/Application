@@ -1,5 +1,4 @@
 {
-    "id": "ExtBox1-ext-gen3110",
     "type": "application",
     "reference": {
         "name": "items",
@@ -14,11 +13,11 @@
         "views": [
             "Root"
         ],
-        "name": "MyApp"
+        "name": "MyApp",
+        "controllers": [
+            "RootController"
+        ]
     },
-    "customConfigs": [],
-    "designerId": "application",
-    "$viewOrder": 0,
-    "iconCls": "icon-application",
-    "expanded": true
+    "id": "ExtBox1-ext-gen3110",
+    "designerId": "application"
 }

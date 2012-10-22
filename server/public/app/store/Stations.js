@@ -11,13 +11,13 @@
  * This file will be auto-generated each and everytime you save your project.
  *
  * Do NOT hand edit this file.
+ * 
  */
 
 Ext.define('MyApp.store.Stations', {
     extend: 'Ext.data.Store',
 
     config: {
-        autoLoad: true,
         storeId: 'stations',
         proxy: {
             type: 'ajax',
@@ -50,6 +50,17 @@ Ext.define('MyApp.store.Stations', {
                 return record.get("group");
                 return record.get("key").split(" / ")[0];
             }
-        }
+        },
+        listeners: [
+            {
+                fn: 'onJsonstoreLoad',
+                event: 'load'
+            }
+        ]
+    },
+
+    onJsonstoreLoad: function(store, records, successful, operation, eOpts) {
+
     }
+
 });

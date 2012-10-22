@@ -3,20 +3,21 @@
     "settings": {
         "urlPrefix": "http://localhost:3000/",
         "spacesToIndent": 4,
-        "codeGenFormat": "Class",
         "exportPath": "/home/lukas/Documents/uni/busbutler/server/public",
-        "extPath": "http://extjs.cachefly.net/touch/sencha-touch-2.0.1/",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "codeGenFormat": "Class",
         "senchaIoKey": "",
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
-        "lineEnding": "LF",
         "instantiateStore": true,
-        "genTimestamps": false,
         "saveOnDeploy": false,
-        "appName": "MyApp",
-        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true"
+        "appName": "MyApp"
     },
-    "xdsVersion": "2.0.0",
-    "xdsBuild": "442",
+    "xdsVersion": "2.1.0",
+    "xdsBuild": 637,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000498,
     "framework": "touch20",
     "topInstanceFileMap": {
         "3706d8fd-4489-4617-93f0-3175eb072d1e": {
@@ -42,13 +43,39 @@
                 "app/store/DepartureTimes.js"
             ],
             "className": "DepartureTimes"
+        },
+        "cb8d3edf-db3e-476a-92b3-d50c4d268797": {
+            "paths": [
+                "metadata/controller/RootController",
+                "app/controller/override/RootController.js",
+                "app/controller/RootController.js"
+            ],
+            "className": "RootController"
+        },
+        "b033d851-4b2f-4226-8b0d-9758eb8a8b74": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
         }
     },
-    "expandedState": {
-        "data": true,
-        "model": true,
-        "component": true,
-        "controller": true,
-        "resource": true
+    "viewOrderMap": {
+        "view": [
+            "3706d8fd-4489-4617-93f0-3175eb072d1e"
+        ],
+        "store": [
+            "91b32bb6-44fe-478d-be3a-ddda6b3aedae",
+            "097cae90-4b9b-4045-9c7b-1f8f7aeb27d7"
+        ],
+        "controller": [
+            "cb8d3edf-db3e-476a-92b3-d50c4d268797"
+        ],
+        "model": [],
+        "resource": [
+            "b033d851-4b2f-4226-8b0d-9758eb8a8b74"
+        ],
+        "app": [
+            "application"
+        ]
     }
 }

@@ -1,5 +1,4 @@
 {
-    "id": "ExtBox1-ext-gen15674",
     "type": "jsonstore",
     "reference": {
         "name": "items",
@@ -7,16 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "storeId": "departureTimes",
-        "designer|userClassName": "DepartureTimes"
+        "designer|userClassName": "DepartureTimes",
+        "storeId": "departureTimes"
     },
-    "customConfigs": [],
+    "id": "ExtBox1-ext-gen15674",
     "designerId": "097cae90-4b9b-4045-9c7b-1f8f7aeb27d7",
-    "$viewOrder": 1,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen15678",
             "type": "ajaxproxy",
             "reference": {
                 "name": "proxy",
@@ -24,14 +20,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": null,
-                "designer|userClassName": "MyAjaxProxy"
+                "designer|userClassName": "MyAjaxProxy",
+                "url": null
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "cc8a140b-5387-44e3-a6a5-ae7235cd837f",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen15682",
                     "type": "jsonreader",
                     "reference": {
                         "name": "reader",
@@ -39,15 +33,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|userClassName": "MyJsonReader",
                         "rootProperty": "rows",
-                        "totalProperty": null,
-                        "designer|userClassName": "MyJsonReader"
+                        "totalProperty": null
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "b316a5be-710a-4ea7-ac20-ef334d59f1da"
                 },
                 {
-                    "id": "ExtBox1-ext-gen17144",
                     "type": "basiceventbinding",
                     "reference": {
                         "name": "listeners",
@@ -55,20 +47,18 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|userClassName": "onAjaxproxyException",
                         "fn": "onAjaxproxyException",
                         "implHandler": [
                             "alert(\"Problem loading data, please retry.\");"
                         ],
-                        "name": "exception",
-                        "designer|userClassName": "onAjaxproxyException"
+                        "name": "exception"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "cb00628d-e2b8-4966-8c4b-2b43c9fb8829"
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen15686",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -76,14 +66,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "countdown",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "countdown"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "685454e8-1391-411a-8d63-333f117615ae"
         },
         {
-            "id": "ExtBox1-ext-gen15690",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -91,14 +79,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "direction",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "direction"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "c83fef6d-344c-4dac-9a97-4275c5ce5694"
         },
         {
-            "id": "ExtBox1-ext-gen15694",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -106,14 +92,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "line",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "line"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "d3fa1ee5-0409-4c90-b401-e70ea2edf9ad"
         },
         {
-            "id": "ExtBox1-ext-gen16504",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -121,14 +105,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "platform",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "platform"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "a83d76ce-c4e0-49be-a0ab-5b3b2b3031da"
         },
         {
-            "id": "ExtBox1-ext-gen16597",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -136,14 +118,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "realtime",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "realtime"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "56aa30d7-57c6-4b80-9cb8-f801305fe23a"
         },
         {
-            "id": "ExtBox1-ext-gen16690",
             "type": "datafield",
             "reference": {
                 "name": "fields",
@@ -151,14 +131,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "timetable",
-                "designer|userClassName": "MyField"
+                "designer|userClassName": "MyField",
+                "name": "timetable"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "6b2dcf19-0232-4999-9088-0756b6d490bc"
         },
         {
-            "id": "ExtBox1-ext-gen7423",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -166,6 +144,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "onJsonstoreLoad",
                 "fn": "onJsonstoreLoad",
                 "implHandler": [
                     "var response = JSON.parse(operation._response.responseText);",
@@ -175,11 +154,9 @@
                     "Ext.getCmp(\"departureLabel\").setHtml(",
                     "    Ext.getCmp(\"departureLabel\").lastUpdate + \" Uhr - \" + Ext.getCmp(\"departureLabel\").location);"
                 ],
-                "name": "load",
-                "designer|userClassName": "onJsonstoreLoad"
+                "name": "load"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "6fbae4b1-76cf-4551-89da-7c092a19d0a5"
         }
     ]
 }

@@ -17,19 +17,25 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
-Ext.application({
-    stores: [
-        'Stations',
-        'DepartureTimes'
-    ],
-    views: [
-        'Root'
-    ],
-    name: 'MyApp',
+function startExtApp(){
+    Ext.application({
+        stores: [
+            'Stations',
+            'DepartureTimes'
+        ],
+        views: [
+            'Root'
+        ],
+        name: 'MyApp',
+        controllers: [
+            'RootController'
+        ],
 
-    launch: function() {
+        launch: function() {
+            app = this.getApplication();
+            Ext.create('MyApp.view.Root', {fullscreen: true});
 
-        Ext.create('MyApp.view.Root', {fullscreen: true});
-    }
+        }
 
-});
+    });  
+}

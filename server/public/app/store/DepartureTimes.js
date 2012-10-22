@@ -39,7 +39,7 @@ Ext.define('MyApp.store.DepartureTimes', {
                 name: 'platform'
             },
             {
-                name: 'realtime'
+                name: 'isRealTime'
             },
             {
                 name: 'timetable'
@@ -70,10 +70,36 @@ Ext.define('MyApp.store.DepartureTimes', {
     onJsonstoreLoad: function(store, records, successful, operation, eOpts) {
         var response = JSON.parse(operation._response.responseText);
         var lastUpdate = new Date(response.lastUpdate);
-        var lastUpdateString = lastUpdate.getHours() + ":" + lastUpdate.getMinutes();
+        var lastUpdateString = lastUpdate.getHours() + ":" + (lastUpdate.getMinutes() < 10 ? "0":"") + lastUpdate.getMinutes();
         Ext.getCmp("departureLabel").lastUpdate = lastUpdateString;
-        Ext.getCmp("departureLabel").setHtml(
-        Ext.getCmp("departureLabel").lastUpdate + " Uhr - " + Ext.getCmp("departureLabel").location);
+
+        var stationsStore = Ext.getCmp("stationList").getStore();
+        if(stationsStore.getCount() == 0){
+            /*
+             * if stationsStore is empty wait until it is loaded
+             */
+            stationsStore.on("load", this.setTitle, this);
+        }else{
+            this.setTitle();
+        }
+    },
+    
+    setTitle: function(){
+        /*
+         * get location name by swuid and stations Store
+         */
+        var location = "";
+        var swuid = Ext.getCmp("departureTimeList").swuid;
+        var record = Ext.getCmp("stationList").getStore().findRecord("swuid", swuid);
+        if(record != null)
+            location = record.get("key");
+        
+        var lastUpdate = Ext.getCmp("departureLabel").lastUpdate;
+        
+        /*
+         * update title bar
+         */
+        Ext.getCmp("departureLabel").setHtml(lastUpdate + " Uhr <br />" + location);
     }
 
 });
