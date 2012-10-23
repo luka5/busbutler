@@ -1,2 +1,8 @@
 
 node_modules
+
+/public/lib/llqrcode.js
+
+
+/public/cordova.html
+/public/cordova*
