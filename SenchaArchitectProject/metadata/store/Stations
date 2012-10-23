@@ -1,0 +1,156 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Stations",
+        "autoLoad": true,
+        "storeId": "stations"
+    },
+    "id": "ExtBox1-ext-gen14549",
+    "designerId": "91b32bb6-44fe-478d-be3a-ddda6b3aedae",
+    "cn": [
+        {
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyAjaxProxy",
+                "groupParam": null,
+                "url": "/allByName"
+            },
+            "designerId": "6c00f7d1-1b4e-45e1-99a4-ca5f6ad89c16",
+            "cn": [
+                {
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonReader",
+                        "idProperty": "none",
+                        "rootProperty": "rows",
+                        "totalProperty": "total_rows"
+                    },
+                    "designerId": "73bbcc26-6ecf-4208-9dcc-988145e3814f"
+                }
+            ]
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyField",
+                "name": "swuid",
+                "mapping": "id"
+            },
+            "designerId": "4d298ed3-3524-4301-bd3a-1e5e09bf983f"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyField",
+                "name": "key"
+            },
+            "designerId": "dd387d17-5acd-40bc-a16e-f6128f173210"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyField",
+                "name": "value"
+            },
+            "designerId": "ffbfd16b-4447-4da4-a743-db1b317cd1bc"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyField",
+                "name": "group",
+                "defaultValue": [
+                    "null"
+                ]
+            },
+            "designerId": "71867992-28ff-40fb-968d-d4728f991560"
+        },
+        {
+            "type": "grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyGrouper"
+            },
+            "designerId": "5f6ec852-7352-4949-ac1e-26742095a7de",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "groupFn",
+                        "fn": "groupFn",
+                        "designer|params": [
+                            "record"
+                        ],
+                        "implHandler": [
+                            "if(record.get(\"group\") !== undefined)",
+                            "   return record.get(\"group\");",
+                            "return record.get(\"key\").split(\" / \")[0];"
+                        ]
+                    },
+                    "designerId": "b40c2826-2bd5-4809-b791-54a3ab4db63f"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onJsonstoreLoad",
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    ""
+                ],
+                "name": "load"
+            },
+            "designerId": "c4b8078f-6349-466a-9fb7-f119eebe9177"
+        }
+    ]
+}

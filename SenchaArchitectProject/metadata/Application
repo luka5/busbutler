@@ -1,0 +1,23 @@
+{
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": [
+            "Stations",
+            "DepartureTimes"
+        ],
+        "views": [
+            "Root"
+        ],
+        "name": "MyApp",
+        "controllers": [
+            "RootController"
+        ]
+    },
+    "id": "ExtBox1-ext-gen3110",
+    "designerId": "application"
+}

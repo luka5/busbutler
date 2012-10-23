@@ -1,0 +1,40 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RootController"
+    },
+    "id": "ExtBox1-ext-gen2487",
+    "designerId": "cb8d3edf-db3e-476a-92b3-d50c4d268797",
+    "cn": [
+        {
+            "type": "controllerroute",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "station",
+                "fn": "station",
+                "designer|params": [
+                    "swuid"
+                ],
+                "implHandler": [
+                    "console.info(\"station \" + swuid);",
+                    "Ext.getCmp(\"root\").fireEvent(\"changeList\", Ext.getCmp(\"departureTimeList\"));",
+                    "Ext.getCmp(\"departureTimeList\").fireEvent(\"updateList\", swuid);",
+                    "Ext.getCmp(\"departureLabel\").location = \"noch laden\";",
+                    "Ext.getCmp(\"departureLabel\").setHtml(Ext.getCmp(\"departureLabel\").location);",
+                    ""
+                ],
+                "url": "station/:swuid"
+            },
+            "designerId": "388633c8-a8e6-45ec-9979-d3b43b7b112a"
+        }
+    ]
+}
